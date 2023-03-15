@@ -13,16 +13,32 @@ Open up a text editor of your choice and complete the following Javascript exerc
 There are three people waiting for the bank. Their names, in order, are Sofia, David, and Juan.
 Create an array that has these three names in order.
 
+const customerLine = ["Sofia", "David", "Juan"];
+
 #### Part 2
 
 Two more people get added to the back of the line - Sara and Augustin.
 The first person in line is called to the teller.
 What does the queue look like?
 
+customerLine.push("Sara","Augustin");  // ["Sofia", "David", "Juan", "Sara", "Augustin"]
+const beingCalled = customerLine.shift();
+console.log(beingCalled); // "Sofia"
+console.log(customerLine); // ["David", "Juan", "Sara", "Augustin"]
+
 #### Part 3
 
 It turns out David was saving a spot for his friend Renata. She shows up and goes behind him in the line. One more person (Elena) shows up and goes to the end of the line.
 What does the queue look like?
+
+customerLine.splice(1,0, "Renata");
+console.log(customerLine); //[ 'David', 'Renata', 'Juan', 'Sara', 'Augustin' ]
+
+//หรือ
+const davidIndex = customerLine.indexOf("David"); //หาindexของDavid
+console.log(davidIndex); // index 0
+customerLine.splice(davidIndex + 1,0, "Renata"); //ใช้.splice()เพื่อใส่Renataต่อจากindexของDevid(0)+1คือ index2 , 0=ไม่ต้องการลบelementใดออกเลย
+console.log(customerLine); //[ 'David', 'Renata', 'Juan', 'Sara', 'Augustin' ]
 
 ### Exercise #2
 
